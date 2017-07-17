@@ -1,0 +1,11 @@
+<div class="jumbotron">
+    <table>
+        <tr>
+            <td>{{contato.nome | uppercase}}</td>
+            <td>{{contato.telefone}}</td>
+            <td>{{contato.operadora.nome | lowercase}}</td>
+            <td>{{contato.data | date: 'dd/MM/yyyy HH:mm'}}</td>
+        </tr>
+    </table>
+    <a href="#/contatos">Voltar</a>
+</div>

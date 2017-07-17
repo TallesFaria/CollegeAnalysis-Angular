@@ -1,0 +1,49 @@
+<div ng-controller="collegeAnalysisCtrl">
+    <div class="jumbotron">
+        <h3>{{app}}</h3> 
+        <ui-accordions> 
+            <ui-accordion title="Accordion 1">
+                AUHUHUHHA
+            </ui-accordion>
+            <ui-accordion title="Accordion 2">
+                JALSKDKASKDO
+            </ui-accordion>
+        </ui-accordions>    
+        <hr />
+
+        <!--<ui-alert title="suhduhshu" message="error">
+            Não foi possível carregar os dados
+        </ui-alert>
+        <div class="ui-alert">
+            <div class="ui-alert-title">
+                Ops! Aconteceu um problema!
+            </div>    
+            <div class="ui-alert-message">
+                {{error}}
+            </div>
+        </div>-->
+
+        <input type="text" ng-model="busca" placeholder="Pesquisar" class="form-control">   
+        <table class="table" ng-show="contatos.length > 0">
+            <tr>
+                <td></td>
+                <td><a href="" ng-click="ordenarPor('nome')"> Nome </a></td>
+                <td><a href="" ng-click="ordenarPor('telefone')">Telefone </a></td>
+                <td>Operadora</td>
+                <td>Data</td>
+            </tr>
+            <tr ng-repeat="contato in contatos | limitTo:10 | filter:{nome: busca} |  orderBy:criterioDeOrdenacao:direcaoDaOrdenacao" ng-class="{selecionado: contato.selecionado}">
+                <td><input type="checkbox" ng-model="contato.selecionado" /></td>
+                <td><a href="#/detalhesContato/{{contato.id}}">{{contato.nome | uppercase}}</a></td>
+                <td>{{contato.telefone}}</td>
+                <td>{{contato.operadora.nome | lowercase}}</td>
+                <td>{{contato.data | date: 'dd/MM/yyyy HH:mm'}}</td>
+                <td><div style="width: 20px; height: 20px;" ng-style="{'background-color': contato.cor}">
+                </div></td>
+            </tr>
+        </table>
+        <hr/>
+        <a href="#/novoContato" class="btn btn-primary btn-block">Novo contato</a>
+    </div>
+    <!--<div ng-include="'footer.html'" />-->
+</div>
